@@ -1,7 +1,7 @@
 package com.mzenskprokat.app.models
 
 // Основные категории продукции
-enum class ProductCategory(val displayName: String) {
+enum class ProductCategory(val shortName: String) {
     PRECISION_HIGH_RESISTANCE("Прецизионные сплавы с высоким сопротивлением"),
     MAGNETIC_SOFT("Магнитно-мягкие сплавы"),
     MAGNETIC_HIGH_INDUCTION("Магнитно-мягкие с высокой индукцией"),
@@ -51,6 +51,7 @@ sealed class Result<out T> {
     data class Success<T>(val data: T) : Result<T>()
     data class Error(val message: String) : Result<Nothing>()
     object Loading : Result<Nothing>()
+    object Idle : Result<Nothing>()
 }
 
 // Данные для главной страницы

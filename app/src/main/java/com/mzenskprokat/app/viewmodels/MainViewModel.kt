@@ -100,7 +100,7 @@ class OrderViewModel(
     private val repository: ProductRepository = ProductRepository()
 ) : ViewModel() {
 
-    private val _orderState = MutableStateFlow<Result<Boolean>>(Result.Loading)
+    private val _orderState = MutableStateFlow<Result<Boolean>>(Result.Idle)
     val orderState: StateFlow<Result<Boolean>> = _orderState.asStateFlow()
 
     fun submitOrder(order: OrderRequest) {
@@ -112,7 +112,7 @@ class OrderViewModel(
     }
 
     fun resetOrderState() {
-        _orderState.value = Result.Loading
+        _orderState.value = Result.Idle
     }
 }
 

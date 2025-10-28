@@ -85,7 +85,7 @@ fun CatalogScreen(
                     onClick = { viewModel.filterByCategory(category) },
                     label = {
                         Text(
-                            text = getCategoryShortName(category),
+                            text = category.shortName,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
@@ -98,7 +98,7 @@ fun CatalogScreen(
 
         // Список продукции
         when (val state = productsState) {
-            is Result.Loading -> {
+            is Result.Loading, is Result.Idle -> {
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
@@ -201,7 +201,7 @@ fun ProductCard(
                 onClick = {},
                 label = {
                     Text(
-                        text = getCategoryShortName(product.category),
+                        text = product.category.shortName,
                         style = MaterialTheme.typography.labelSmall
                     )
                 }
@@ -238,18 +238,3 @@ fun ProductCard(
     }
 }
 
-fun getCategoryShortName(category: ProductCategory): String {
-    return when (category) {
-        ProductCategory.PRECISION_HIGH_RESISTANCE -> "Высокое сопротивление"
-        ProductCategory.MAGNETIC_SOFT -> "Магнитно-мягкие"
-        ProductCategory.MAGNETIC_HIGH_INDUCTION -> "Высокая индукция"
-        ProductCategory.TEMPERATURE_COEFFICIENT -> "Заданный ТКЛР"
-        ProductCategory.HIGH_PERMEABILITY -> "Высокая проницаемость"
-        ProductCategory.IRON_NICKEL -> "Железо-никелевые"
-        ProductCategory.NICKEL_BASE -> "Никелевые"
-        ProductCategory.ELASTIC_ELEMENTS -> "Упругие элементы"
-        ProductCategory.CORROSION_RESISTANT -> "Коррозионностойкие"
-        ProductCategory.HEAT_RESISTANT -> "Жаростойкие"
-        ProductCategory.NICHROME_WIRE -> "Нихром"
-    }
-}

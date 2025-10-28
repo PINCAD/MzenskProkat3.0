@@ -74,7 +74,7 @@ fun ProductDetailScreen(
         }
     ) { paddingValues ->
         when (val state = productState) {
-            is Result.Loading -> {
+            is Result.Loading, is Result.Idle -> {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
