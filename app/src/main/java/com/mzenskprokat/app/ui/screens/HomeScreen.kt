@@ -53,7 +53,7 @@ fun HomeScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(320.dp)  // Увеличил с 300dp до 320dp
+                    .height(300.dp)  // Увеличил с 300dp до 320dp
                     .background(
                         brush = Brush.verticalGradient(
                             colors = listOf(
@@ -75,7 +75,7 @@ fun HomeScreen(
                     Surface(
                         modifier = Modifier.size(100.dp),
                         shape = RoundedCornerShape(24.dp),
-                        color = Color.White.copy(alpha = 0.15f),
+                        color = Color.White.copy(alpha = 0.9f),
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,
@@ -119,6 +119,7 @@ fun HomeScreen(
                     ) {
                         Text(
                             text = "Производитель металлопродукции с 1964 года",
+                            fontSize = 12.sp,
                             style = MaterialTheme.typography.bodyMedium,
                             color = Color.White,
                             textAlign = TextAlign.Center,
