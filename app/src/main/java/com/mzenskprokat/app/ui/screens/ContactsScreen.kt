@@ -15,6 +15,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.mzenskprokat.app.models.ContactInfo
+import androidx.compose.material.icons.outlined.Build
+import androidx.compose.material.icons.outlined.Phone
+import androidx.compose.material.icons.outlined.Email
+import androidx.compose.material.icons.outlined.Place
+import androidx.compose.material.icons.outlined.AccessTime
+import androidx.compose.material.icons.outlined.Info
 
 @Composable
 fun ContactsScreen() {
@@ -39,7 +45,7 @@ fun ContactsScreen() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Build,
+                        imageVector = Icons.Outlined.Build,
                         contentDescription = null,
                         modifier = Modifier.size(64.dp),
                         tint = MaterialTheme.colorScheme.primary
@@ -61,7 +67,7 @@ fun ContactsScreen() {
         // Телефон
         item {
             ContactCard(
-                icon = Icons.Default.Phone,
+                icon = Icons.Outlined.Phone,
                 title = "Телефон",
                 value = contactInfo.phone,
                 description = "Позвоните нам",
@@ -77,7 +83,7 @@ fun ContactsScreen() {
         // Email
         item {
             ContactCard(
-                icon = Icons.Default.Email,
+                icon = Icons.Outlined.Email,
                 title = "Электронная почта",
                 value = contactInfo.email,
                 description = "Напишите нам",
@@ -94,7 +100,7 @@ fun ContactsScreen() {
         // Адрес
         item {
             ContactCard(
-                icon = Icons.Default.Place,
+                icon = Icons.Outlined.Place,
                 title = "Адрес",
                 value = contactInfo.address,
                 description = "Наше местоположение",
@@ -129,7 +135,7 @@ fun ContactsScreen() {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Icon(
-                            imageVector = Icons.Default.AccessTime,
+                            imageVector = Icons.Outlined.AccessTime,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary
                         )
@@ -162,7 +168,7 @@ fun ContactsScreen() {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Info,
+                            imageVector = Icons.Outlined.Info,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.secondary
                         )

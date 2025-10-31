@@ -5,26 +5,25 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-// Цветовая палитра для светлой темы
+
 private val LightColorScheme = lightColorScheme(
-    primary = Color(0xFF1976D2),
+    primary = Color(0xFF1C5D9C),  // Промышленный синий
     onPrimary = Color.White,
-    primaryContainer = Color(0xFFBBDEFB),
+    primaryContainer = Color(0xFFE3F2FD),
     onPrimaryContainer = Color(0xFF0D47A1),
 
-    secondary = Color(0xFFFF6F00),
+    secondary = Color(0xFF455A64),  // Стальной серый
     onSecondary = Color.White,
-    secondaryContainer = Color(0xFFFFE0B2),
-    onSecondaryContainer = Color(0xFFE65100),
+    secondaryContainer = Color(0xFFECEFF1),
+    onSecondaryContainer = Color(0xFF263238),
 
-    tertiary = Color(0xFF388E3C),
+    tertiary = Color(0xFFFF6F00),  // Оранжевый акцент (металлургия)
     onTertiary = Color.White,
-    tertiaryContainer = Color(0xFFC8E6C9),
-    onTertiaryContainer = Color(0xFF1B5E20),
+    tertiaryContainer = Color(0xFFFFE0B2),
+    onTertiaryContainer = Color(0xFFE65100),
 
     background = Color(0xFFFAFAFA),
     onBackground = Color(0xFF212121),
-
     surface = Color.White,
     onSurface = Color(0xFF212121),
     surfaceVariant = Color(0xFFF5F5F5),
@@ -39,7 +38,6 @@ private val LightColorScheme = lightColorScheme(
     outlineVariant = Color(0xFFE0E0E0)
 )
 
-// Цветовая палитра для темной темы
 private val DarkColorScheme = darkColorScheme(
     primary = Color(0xFF42A5F5),
     onPrimary = Color(0xFF0D47A1),

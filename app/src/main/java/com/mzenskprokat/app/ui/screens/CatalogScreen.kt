@@ -6,7 +6,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -17,6 +16,11 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mzenskprokat.app.models.*
 import com.mzenskprokat.app.viewmodels.ProductCatalogViewModel
+import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material.icons.outlined.Clear
+import androidx.compose.material.icons.outlined.Warning
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.KeyboardArrowRight
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,14 +50,14 @@ fun CatalogScreen(
                 active = false,
                 onActiveChange = {},
                 placeholder = { Text("Поиск по сплавам...") },
-                leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
+                leadingIcon = { Icon(Icons.Outlined.Search, contentDescription = "Search") },
                 trailingIcon = {
                     if (searchQuery.isNotEmpty()) {
                         IconButton(onClick = {
                             searchQuery = ""
                             viewModel.loadAllProducts()
                         }) {
-                            Icon(Icons.Default.Clear, contentDescription = "Clear")
+                            Icon(Icons.Outlined.Clear, contentDescription = "Clear")
                         }
                     }
                 },
@@ -144,7 +148,7 @@ fun CatalogScreen(
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Warning,
+                            imageVector = Icons.Outlined.Warning,
                             contentDescription = null,
                             modifier = Modifier.size(48.dp),
                             tint = MaterialTheme.colorScheme.error
@@ -214,7 +218,7 @@ fun ProductCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    imageVector = Icons.Default.Info,
+                    imageVector = Icons.Outlined.Info,
                     contentDescription = null,
                     modifier = Modifier.size(16.dp),
                     tint = MaterialTheme.colorScheme.primary
@@ -229,7 +233,7 @@ fun ProductCard(
                 Spacer(modifier = Modifier.weight(1f))
 
                 Icon(
-                    imageVector = Icons.Default.KeyboardArrowRight,
+                    imageVector = Icons.Outlined.KeyboardArrowRight,
                     contentDescription = "Подробнее",
                     tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )

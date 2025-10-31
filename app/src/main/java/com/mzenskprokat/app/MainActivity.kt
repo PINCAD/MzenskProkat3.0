@@ -60,23 +60,25 @@ fun MainApp() {
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = when (currentRoute) {
-                            Screen.Home.route -> "Мценскпрокат"
-                            Screen.Catalog.route -> "Каталог продукции"
-                            Screen.Contacts.route -> "Контакты"
-                            Screen.Order.route -> "Оформление заказа"
-                            else -> "Мценскпрокат"
-                        }
+            // Показываем заголовок только НЕ на главной странице
+            if (currentRoute != Screen.Home.route) {
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = when (currentRoute) {
+                                Screen.Catalog.route -> "Каталог продукции"
+                                Screen.Order.route -> "Корзина"
+                                Screen.Contacts.route -> "Контакты"
+                                else -> "Мценскпрокат"
+                            }
+                        )
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        titleContentColor = MaterialTheme.colorScheme.onPrimary
                     )
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimary
                 )
-            )
+            }
         },
         bottomBar = {
             if (showBottomBar) {
@@ -104,10 +106,10 @@ fun MainApp() {
                 }
             }
         }
-    ) { paddingValues ->
+    ) { innerPadding ->
         NavigationGraph(
             navController = navController,
-            modifier = Modifier.padding(paddingValues)
+            modifier = Modifier.padding(innerPadding)
         )
     }
 }
@@ -115,12 +117,12 @@ fun MainApp() {
 @Composable
 fun NavigationGraph(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier // <-- Принимаем modifier
 ) {
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route,
-        modifier = modifier
+        modifier = modifier // <-- Применяем modifier
     ) {
         composable(Screen.Home.route) {
             HomeScreen(

@@ -4,7 +4,16 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.outlined.ShoppingCart
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.Phone
+import androidx.compose.material.icons.outlined.Email
+import androidx.compose.material.icons.outlined.List
+import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Send
+import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.Warning
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -65,7 +74,7 @@ fun OrderScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Icon(
-                        imageVector = Icons.Default.ShoppingCart,
+                        imageVector = Icons.Outlined.ShoppingCart,
                         contentDescription = null,
                         modifier = Modifier.size(48.dp),
                         tint = MaterialTheme.colorScheme.primary
@@ -99,7 +108,7 @@ fun OrderScreen(
                 value = customerName,
                 onValueChange = { customerName = it },
                 label = { Text("Ваше имя *") },
-                leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
+                leadingIcon = { Icon(Icons.Outlined.Person, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -110,7 +119,7 @@ fun OrderScreen(
                 value = phone,
                 onValueChange = { phone = it },
                 label = { Text("Телефон *") },
-                leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
+                leadingIcon = { Icon(Icons.Outlined.Phone, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
                 singleLine = true,
@@ -123,7 +132,7 @@ fun OrderScreen(
                 value = email,
                 onValueChange = { email = it },
                 label = { Text("Email *") },
-                leadingIcon = { Icon(Icons.Default.Email, contentDescription = null) },
+                leadingIcon = { Icon(Icons.Outlined.Email, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 singleLine = true,
@@ -146,7 +155,7 @@ fun OrderScreen(
                 value = productName,
                 onValueChange = { productName = it },
                 label = { Text("Наименование продукции *") },
-                leadingIcon = { Icon(Icons.Default.List, contentDescription = null) },
+                leadingIcon = { Icon(Icons.Outlined.List, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 placeholder = { Text("Например: Х20Н80") }
@@ -158,7 +167,7 @@ fun OrderScreen(
                 value = quantity,
                 onValueChange = { quantity = it },
                 label = { Text("Количество *") },
-                leadingIcon = { Icon(Icons.Default.ShoppingCart, contentDescription = null) },
+                leadingIcon = { Icon(Icons.Outlined.ShoppingCart, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 placeholder = { Text("Например: 100 кг") }
@@ -170,7 +179,7 @@ fun OrderScreen(
                 value = comment,
                 onValueChange = { comment = it },
                 label = { Text("Комментарий (необязательно)") },
-                leadingIcon = { Icon(Icons.Default.Edit, contentDescription = null) },
+                leadingIcon = { Icon(Icons.Outlined.Edit, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 minLines = 3,
                 maxLines = 5,
@@ -190,7 +199,7 @@ fun OrderScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Info,
+                        imageVector = Icons.Outlined.Info,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.secondary
                     )
@@ -234,7 +243,7 @@ fun OrderScreen(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text("Отправка...")
                 } else {
-                    Icon(Icons.Default.Send, contentDescription = null)
+                    Icon(Icons.Outlined.Send, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
                     Text("Отправить заявку")
                 }
@@ -262,7 +271,7 @@ fun OrderScreen(
             },
             icon = {
                 Icon(
-                    Icons.Default.CheckCircle,
+                    Icons.Outlined.CheckCircle,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(48.dp)
@@ -300,7 +309,7 @@ fun OrderScreen(
             },
             icon = {
                 Icon(
-                    Icons.Default.Warning,
+                    Icons.Outlined.Warning,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.error,
                     modifier = Modifier.size(48.dp)
