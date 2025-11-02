@@ -18,6 +18,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.mzenskprokat.app.ui.screens.*
 import com.mzenskprokat.app.ui.theme.MzenskProkatTheme
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,27 +61,6 @@ fun MainApp() {
     val showBottomBar = currentRoute in bottomNavItems.map { it.route }
 
     Scaffold(
-        topBar = {
-            // Показываем заголовок только НЕ на главной странице
-            if (currentRoute != Screen.Home.route) {
-                TopAppBar(
-                    title = {
-                        Text(
-                            text = when (currentRoute) {
-                                Screen.Catalog.route -> "Каталог продукции"
-                                Screen.Order.route -> "Корзина"
-                                Screen.Contacts.route -> "Контакты"
-                                else -> "Мценскпрокат"
-                            }
-                        )
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        titleContentColor = MaterialTheme.colorScheme.onPrimary
-                    )
-                )
-            }
-        },
         bottomBar = {
             if (showBottomBar) {
                 NavigationBar {
@@ -88,6 +69,17 @@ fun MainApp() {
                             icon = { Icon(screen.icon, contentDescription = screen.title) },
                             label = { Text(screen.title) },
                             selected = currentRoute == screen.route,
+                            colors = NavigationBarItemDefaults.colors(
+                                // Цвет иконки на "таблетке" (белый)
+                                selectedIconColor = MaterialTheme.colorScheme.onPrimary,
+                                // Цвет "таблетки" (синий)
+                                indicatorColor = MaterialTheme.colorScheme.primary,
+                                // Цвет текста, когда он выбран (синий)
+                                selectedTextColor = MaterialTheme.colorScheme.primary,
+                                // Цвета невыбранных элементов (серые)
+                                unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                                unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant
+                            ),
                             onClick = {
                                 if (currentRoute != screen.route) {
                                     navController.navigate(screen.route) {
@@ -122,7 +114,12 @@ fun NavigationGraph(
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route,
-        modifier = modifier // <-- Применяем modifier
+        modifier = modifier, // <-- Применяем modifier,
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
+        popEnterTransition = { EnterTransition.None },
+        popExitTransition = { ExitTransition.None }
+
     ) {
         composable(Screen.Home.route) {
             HomeScreen(
